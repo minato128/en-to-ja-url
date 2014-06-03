@@ -11,35 +11,34 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 });
 
 chrome.pageAction.onClicked.addListener(function(tab) {
-    if (tab == null) return;
     var url = tab.url;
-    if (url == null) return;
+    var pair = getLocalePair(url);
+    if (pair == null) return;
+
     url = url.toLowerCase();
-    if (url.indexOf('/ja-jp/') !== -1){
-      chrome.tabs.update( tab.id, { url: url.replace('ja-jp','en-us') } );
-    } else if (url.indexOf('/en-us/') !== -1) {
-      chrome.tabs.update( tab.id, { url: url.replace('en-us','ja-jp') } );
-    }
+    chrome.tabs.update( tab.id, { url: url.replace(pair.match, pair.target) } );
 });
 
 function setIcon(tabId){
   chrome.tabs.get(tabId,function(tab){
-    if (tab == null) return;
-    var url = tab.url;
-    if (url == null) return;
-    url = url.toLowerCase();
-    if (url.indexOf('/ja-jp/') !== -1){
-      chrome.pageAction.setIcon({path: "icon1.png", tabId: tabId});   
-      chrome.pageAction.show(tabId);
-    } else if (url.indexOf('/en-us/') !== -1) {
-      chrome.pageAction.setIcon({path: "icon2.png", tabId: tabId});   
-      chrome.pageAction.show(tabId);
-    } else {
-      chrome.pageAction.hide(tabId);
-    }
+    var pair = getLocalePair(tab.url);
+    if (pair == null) {chrome.pageAction.hide(tabId);return;}
+
+    chrome.pageAction.setIcon({path: 'icon-' + pair.match + '.png', tabId: tabId});
+    chrome.pageAction.setTitle({tabId: tabId, title: pair.target + 'に移動します。'});
+    chrome.pageAction.show(tabId);
   });
 };
 
-
+function getLocalePair(url){
+  if (url == null) return null;
+  url = url.toLowerCase();
+  if (url.indexOf('/ja-jp/') !== -1){
+    return {match:'ja-jp', target:'en-us'}
+  } else if (url.indexOf('/en-us/') !== -1) {
+    return {match:'en-us', target:'ja-jp'}
+  }
+  return null;
+}
 
 

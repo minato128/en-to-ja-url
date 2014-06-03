@@ -1,7 +1,7 @@
 {
   "name": "en-us to ja-jp URL",
   "description": "クリックするとURLがen-usならja-jpへ、ja-jpならen-usへ切り替わります。",
-  "version": "0.1",
+  "version": "0.2",
   "background": {
     "scripts": ["background.js"]
   },

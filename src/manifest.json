@@ -1,0 +1,16 @@
+{
+  "name": "en-us to ja-jp URL",
+  "description": "クリックするとURLがen-usならja-jpへ、ja-jpならen-usへ切り替わります。",
+  "version": "0.1",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "page_action": {
+    "default_title": "クリックすると遷移します。"
+  },
+  "manifest_version": 2,
+  "permissions": [ "tabs" ],
+  "icons" : {
+    "128": "icon.png"
+  }
+}

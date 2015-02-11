@@ -1,7 +1,7 @@
 {
   "name": "Microsoft Website Locale Switcher",
   "description": "You can switch the Locale in Microsoft Website URL.",
-  "version": "0.3",
+  "version": "0.4",
   "background": {
     "page": "background.html"
   },

@@ -15,8 +15,7 @@ chrome.pageAction.onClicked.addListener(function(tab) {
     var cul = getCulture(url);
     if (cul == null) return;
 
-    url = url.toLowerCase();
-    chrome.tabs.update( tab.id, { url: url.replace(cul.match, cul.target) } );
+    chrome.tabs.update( tab.id, { url: url.replace(new RegExp('/' + cul.match, 'i'), '/' + cul.target) } );
 });
 
 function setIcon(tabId){
@@ -41,16 +40,17 @@ function createIconImage(locale, fontColor) {
   return context.getImageData(0, 0, 19, 19);
 }
 
+//３つ以上の設定にも対応したけど、需要なさそうだからまだ設定画面には反映してない
 function getCulture(url){
   if (url == null) return null;
-  url = url.toLowerCase();
-  var culture1 = localStorage['culture1'] || 'en-us';
-  var culture2 = localStorage['culture2'] || 'ja-jp';
-  if (url.indexOf('/' + culture1) !== -1){
-    return {match:culture1, target:culture2, color:'blue'}
-  } else if (url.indexOf('/' + culture2) !== -1) {
-    return {match:culture2, target:culture1, color:'red'}
+
+  var locales = [ localStorage['culture1'] || 'en-us', localStorage['culture2'] || 'ja-jp'];
+  for (var i = 0; i < locales.length; i++) {
+    if(url.match(new RegExp('/' + locales[i], 'i'))){
+      return {match:locales[i], target:locales[i == locales.length - 1 ? 0 : i+1], color:i % 2 == 0 ? 'blue' : 'red'};
+    }
   }
+
   return null;
 }
 

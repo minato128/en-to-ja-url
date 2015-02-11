@@ -1,4 +1,4 @@
-en-to-ja-url
+Microsoft Website Locale Switcher
 ============
 
-https://chrome.google.com/webstore/detail/en-us-to-ja-jp-url/bmcfbbepjmlemgdbmhdoehimgnlekcpi?hl=ja&gl=JP
+[Chrome Web Store](https://chrome.google.com/webstore/detail/microsoft-website-locale/bmcfbbepjmlemgdbmhdoehimgnlekcpi)

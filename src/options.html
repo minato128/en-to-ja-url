@@ -3,14 +3,26 @@
     <meta charset="utf-8" />
     <title>Options</title>
     <script src="options.js"></script>
+    <style type="text/css">
+      body{font-size:20px;font-family:sans-serif;text-align:center;background:#eaeaea;margin:0}
+      .container{display:inline-block;vertical-align:middle}
+      .button {padding: 10px 30px;font-size: 20px;}
+      .textbox {font-size:25px;text-align: center;}
+    </style>
   </head>
-
   <body>
-    Locale 1: <input type=text id="culture1" size="10" value="" maxlength="10" /><br>
-    Locale 2: <input type=text id="culture2" size="10" value="" maxlength="10" /><br>
-    <button id="save">Save</button>
-    <button id="clear">Clear</button>
-    <div id="status"></div>
+    <div class="container">
+      <h1>Options</h1>
+      <p>
+        Locale 1 : <input type="text" id="culture1" class="textbox" size="10" value="" maxlength="10" /><br>
+        Locale 2 : <input type="text" id="culture2" class="textbox" size="10" value="" maxlength="10" /><br>
+      </p>
+      <p>
+        <button id="save" class="button">Save</button>
+        <div id="status"></div>
+      </p>
+      <a id="clear" href="#">Clear</a>
+    </div>
   </body>
 
 </html>

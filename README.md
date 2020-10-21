@@ -1,4 +1,4 @@
-Microsoft Website Locale Switcher
+URL Locale Switcher
 ============
 
-[Chrome Web Store](https://chrome.google.com/webstore/detail/microsoft-website-locale/bmcfbbepjmlemgdbmhdoehimgnlekcpi)
+[Chrome Web Store](https://chrome.google.com/webstore/search/locale%20switcher)

@@ -1,4 +1,4 @@
 URL Locale Switcher
 ============
 
-[Chrome Web Store](https://chrome.google.com/webstore/search/locale%20switcher)
+https://chrome.google.com/webstore/detail/url-locale-switcher/aoeilpnojpmclgkaebnghbclcdjiikie
